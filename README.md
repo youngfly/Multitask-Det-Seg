@@ -211,6 +211,20 @@ print(dataset_dir)                # 本地缓存路径，如 ~/.cache/modelscope
 
 打开上述仓库地址 → 点击「下载」按钮，按页面指引下载 zip 并解压到本项目的 `dataset/` 目录。
 
+**方式四：命令行 CLI 下载（modelscope 命令行，推荐）**
+
+需先安装 `modelscope`（与 SDK 同包）：`pip install modelscope`。安装后即可用 `modelscope download` 命令直接拉取：
+
+```bash
+# 下载整个数据集到 ./dataset（--local_dir 指定落地目录）
+modelscope download --dataset learnai2/multiyolo-det-seg --local_dir ./dataset
+
+# 也可只下载单个文件（如数据集 README）先确认内容，再拉全量
+modelscope download --dataset learnai2/multiyolo-det-seg README.md --local_dir ./dataset
+```
+
+> 提示：`modelscope download --local_dir ./dataset` 会把数据**平铺**到指定的 `./dataset` 目录下（不额外套 `learnai2/multiyolo-det-seg/` 子目录），正好与 `data/bdd_det_seg.yaml` 约定的 `./dataset/detdata`、`./dataset/segimages`、`./dataset/seglabels` 等路径对齐，无需再手动挪动。命令行方式相比 git 克隆更轻量、支持断点续传。
+
 > 下载完成后，请确保项目目录结构满足 `data/bdd_det_seg.yaml` 的约定（`./dataset/detdata/images/...`、`./dataset/seglabels/...` 等），否则训练会找不到数据。
 
 ---
