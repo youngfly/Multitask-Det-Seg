@@ -1,7 +1,6 @@
 # README — 检测 / 分割 多任务训练·推理·部署框架
 
 > 基于 ultralytics/yolov5（tag v5.0）改造的**单模型多任务框架**：一个 YOLOv5 主干**并联一个轻量分割头**，一次前向同时输出**目标检测框 + 语义分割图**。
-> 本文档按**当前工作区真实文件关系**撰写，训练/推理示例统一以 **`dataset`**（原 `dataset2`）数据集为准。
 
 ---
 
@@ -176,7 +175,7 @@ total = loss + segloss
 
 本数据集已发布到 ModelScope，供他人直接获取（约 1.1 GB / 7500+ 文件）：
 
-- 仓库地址：<https://www.modelscope.cn/datasets/learnai2/multiyolo-det-seg>
+- 仓库地址：[https://www.modelscope.cn/datasets/learnai2/multiyolo-det-seg](https://www.modelscope.cn/datasets/learnai2/multiyolo-det-seg)
 - 数据集说明（标注格式、类别约定、掩码解码等）：见仓库内 `README.md` 或本仓库 `dataset/README.md`
 
 **方式一：git 克隆（需 git-lfs）**
