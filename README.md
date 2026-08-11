@@ -2,7 +2,6 @@
 
 > 基于 ultralytics/yolov5（tag v5.0）改造的**单模型多任务框架**：一个 YOLOv5 主干**并联一个轻量分割头**，一次前向同时输出**目标检测框 + 语义分割图**。
 > 本文档按**当前工作区真实文件关系**撰写，训练/推理示例统一以 **`dataset`**（原 `dataset2`）数据集为准。
-> 原详细文档（总体说明、YOLOv5 通用用法）见 [`readme_ori.md`](./readme_ori.md)。
 
 ---
 
@@ -78,11 +77,9 @@
 │   └── test_custom.py     # test.py 的 Cityscapes/custom 验证变体
 ├── weights/               # 仅 download_weights.sh（yolov5s/m/l/x.pt 由脚本下载，不随仓库）
 ├── runs/                  # 训练产物（exp*/weights/{last,best}.pt）
-├── githubimage/           # README 演示图
-├── requirements.txt
-├── 流媒体服务器搭建指南.pdf
-├── README.md              # 本文档
-└── readme_ori.md          # 原详细文档留底
+├── .github/               # CI/社区模板：workflows(ci-testing/codeql/greetings/rebase/stale)、ISSUE 模板、dependabot
+├── .gitignore / .gitattributes / .dockerignore / LICENSE / requirements.txt
+└── README.md              # 本文档
 ```
 
 ---
@@ -335,7 +332,7 @@ python3 test.py      # 同时算分割 mIoU 与检测 mAP（使用对应 cfg/dat
 
 ## 9. 部署（RTSP 拉推流）
 
-三段式：**本地 `ffmpeg` 推流 → 盒子 `main.py` 拉流推理并回推 → 本地 `ffplay` 拉结果流**。完整流媒体服务器搭建见根目录 [`流媒体服务器搭建指南.pdf`](./流媒体服务器搭建指南.pdf)。
+三段式：**本地 `ffmpeg` 推流 → 盒子 `main.py` 拉流推理并回推 → 本地 `ffplay` 拉结果流**。
 
 **① 推流**（把本地视频循环推到 RTSP 服务器）
 
